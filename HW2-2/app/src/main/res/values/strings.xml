@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Law_Kevin_HW3</string>
+    <string name="button_click_me">Add Content</string>
+    <string name="homework_3">Homework 3!</string>
+    <string name="age"> Content </string>
+    <string name="title">Select an age</string>
+    <string name="hint">Enter a message</string>
+    <string name="send">Send message</string>
+    <string name="respond">Respond</string>
+    <string name="response">Welcome</string>
+
+
+    <string-array name="list_age">
+        <item>"Under the age of 18"</item>
+        <item>"18 to 22"</item>
+        <item>"22-29"</item>
+        <item>"Over the age of 30"</item>
+    </string-array>
+</resources>
