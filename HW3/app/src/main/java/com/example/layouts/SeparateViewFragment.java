@@ -8,11 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class SeparateView extends Fragment {
+public class SeparateViewFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        RecyclerView movieRecycler = (RecyclerView)inflater.inflate(R.layout.mainview, container, false);
+        RecyclerView movieRecycler = (RecyclerView)inflater.inflate(R.layout.fragment_separate_view, container, false);
 
         String[] movieTitles = new String[Movie.movie.length];
         for (int titles = 0; titles < movieTitles.length; titles++){

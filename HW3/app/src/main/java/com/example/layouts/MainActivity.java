@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickTopLeft(View view) {
-        Intent intent = new Intent(this, SeparateView.class);
+        Intent intent = new Intent(this, SeparateViewFragment.class);
         startActivity(intent);
     }
 
