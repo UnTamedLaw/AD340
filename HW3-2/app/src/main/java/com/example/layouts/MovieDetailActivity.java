@@ -25,8 +25,21 @@ public class MovieDetailActivity extends AppCompatActivity {
 
         int movieID = (Integer)getIntent().getExtras().get(MOVIE_ID);
         String movieName = Movie.movie[movieID].getTitle();
-        TextView textView = (TextView)findViewById(R.id.text);
-        textView.setText(movieName);
+        TextView titleView = (TextView)findViewById(R.id.title);
+        titleView.setText("Title: " + movieName);
+
+        String year = String.valueOf(Movie.movie[movieID].getYear());
+        TextView yearView = (TextView)findViewById(R.id.year);
+        yearView.setText("Year: " + year);
+
+        String director = String.valueOf(Movie.movie[movieID].getDirector());
+        TextView directorView = (TextView)findViewById(R.id.director);
+        directorView.setText("Director: " + director);
+
+        String description = String.valueOf(Movie.movie[movieID].getDescription());
+        TextView descriptionView = (TextView)findViewById(R.id.description);
+        descriptionView.setText("Description: " + description);
+
     }
 
 }
