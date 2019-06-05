@@ -1,4 +1,4 @@
-package com.example.navigation;
+package com.lawk.navigation;
 
 import org.junit.Test;
 
