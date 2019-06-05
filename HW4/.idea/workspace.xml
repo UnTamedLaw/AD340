@@ -6,13 +6,7 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d4b6620-78c8-4dcf-92dd-14a586fff20f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../HW3-2/app/src/main/java/com/example/layouts/MovieDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HW3-2/app/src/main/java/com/example/layouts/MovieDetailActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW3-2/app/src/main/java/com/example/layouts/MovieImageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HW3-2/app/src/main/java/com/example/layouts/MovieImageAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW3-2/app/src/main/res/layout/activity_moviedetail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HW3-2/app/src/main/res/layout/activity_moviedetail.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW3-2/app/src/main/res/layout/movie_cardview.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HW3-2/app/src/main/res/layout/movie_cardview.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HW3/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3d4b6620-78c8-4dcf-92dd-14a586fff20f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
