@@ -38,9 +38,7 @@ public class Movie {
     public int getYear() {
         return year;
     }
-    public String getDirector() {
-        return director;
-    }
+    public String getDirector() { return director; }
     public String getDescription() {
         return description;
     }

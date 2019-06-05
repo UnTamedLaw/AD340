@@ -23,9 +23,13 @@ public class ViewFragment extends Fragment {
         int[] movieImages = new int[Movie.movie.length];
         for (int imageId = 0; imageId < movieImages.length; imageId++) {
             movieImages[imageId] = Movie.movie[imageId].getImageId();
-        };
+        }
+        int[] movieYears = new int[Movie.movie.length];
+        for (int year = 0; year < movieYears.length; year++) {
+            movieYears[year] = Movie.movie[year].getYear();
+        }
 
-        MovieImageAdapter adapter = new MovieImageAdapter(movieTitles, movieImages);
+        MovieImageAdapter adapter = new MovieImageAdapter(movieTitles, movieImages, movieYears);
 
         movieRecycler.setAdapter(adapter);
 

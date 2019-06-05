@@ -12,15 +12,17 @@ import android.view.View;
 public class MovieImageAdapter extends RecyclerView.Adapter<MovieImageAdapter.ViewHolder> {
     private String[] title;
     private int[] imageIds;
+    private int[] year;
     private Listener listener;
 
     interface Listener {
         void onClick(int position);
     }
 
-    public MovieImageAdapter(String[] text, int[] imageIds) {
+    public MovieImageAdapter(String[] text, int[] imageIds, int[] years) {
         this.title = text;
         this.imageIds = imageIds;
+        this.year = years;
     }
 
     @Override
@@ -49,13 +51,17 @@ public class MovieImageAdapter extends RecyclerView.Adapter<MovieImageAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         CardView cardView = holder.cardView;
-        ImageView imageview = (ImageView)cardView.findViewById(R.id.img);
+        ImageView imageView = (ImageView)cardView.findViewById(R.id.img);
         Drawable drawable = ContextCompat.getDrawable(cardView.getContext(), imageIds[position]);
-        imageview.setImageDrawable(drawable);
+        imageView.setImageDrawable(drawable);
 
-        imageview.setContentDescription(title[position]);
+        imageView.setContentDescription(title[position]);
+
         TextView textView = (TextView)cardView.findViewById(R.id.text);
         textView.setText(title[position]);
+
+        TextView yearView = (TextView)cardView.findViewById(R.id.year);
+        yearView.setText(year[position]);
 
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
