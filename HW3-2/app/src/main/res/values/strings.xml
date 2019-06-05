@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Layouts</string>
+    <string name="zombie_movies">Zombie Movies</string>
+    <string name="app_info">App Info</string>
+    <string name="classinfo">ClassInfo</string>
+    <string name="author">Author</string>
+
+</resources>
