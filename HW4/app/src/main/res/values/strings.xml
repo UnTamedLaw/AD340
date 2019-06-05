@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Navigation</string>
+
+    <string name="Home_text">Welcome to the home fragment</string>
+    <string name="About_text">Welcome to the about fragment</string>
+    <string name="Home">Home </string>
+    <string name="About">About </string>
+
+    <string name="Navigation">Navigation</string>
+    <string name="pome">pomeranian</string>
+    <string name="boo">people.com/pets/can-you-stand-it-meet-boo-the-worlds-cutest-dog/</string>
+    <string name="nav_open">Open navigation drawer</string>
+    <string name="nav_close">Close navigation drawer</string>
+    <string name="app_bar_spinner">Spin</string>
+    <string name="app_bar_setting">Settings</string>
+</resources>
