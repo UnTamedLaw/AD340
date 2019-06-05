@@ -58,10 +58,8 @@ public class MovieImageAdapter extends RecyclerView.Adapter<MovieImageAdapter.Vi
         imageView.setContentDescription(title[position]);
 
         TextView textView = (TextView)cardView.findViewById(R.id.text);
-        textView.setText(title[position]);
+        textView.setText(title[position] + " " + year[position]);
 
-        TextView yearView = (TextView)cardView.findViewById(R.id.year);
-        yearView.setText(year[position]);
 
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override

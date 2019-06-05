@@ -10,10 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09ece081-6cf6-4c42-ac2e-3a555db2fdf0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../HW3-2/app/src/main/java/com/example/layouts/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HW3-2/app/src/main/java/com/example/layouts/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW3-2/app/src/main/java/com/example/layouts/MovieDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HW3-2/app/src/main/java/com/example/layouts/MovieDetailActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../HW3-2/app/src/main/java/com/example/layouts/MovieImageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HW3-2/app/src/main/java/com/example/layouts/MovieImageAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW3-2/app/src/main/java/com/example/layouts/ViewFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HW3-2/app/src/main/java/com/example/layouts/ViewFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW3-2/app/src/main/res/layout/activity_moviedetail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HW3-2/app/src/main/res/layout/activity_moviedetail.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../HW3-2/app/src/main/res/layout/movie_cardview.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HW3-2/app/src/main/res/layout/movie_cardview.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

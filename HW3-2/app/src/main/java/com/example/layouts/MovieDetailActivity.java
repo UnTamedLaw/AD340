@@ -1,9 +1,11 @@
 package com.example.layouts;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -39,6 +41,11 @@ public class MovieDetailActivity extends AppCompatActivity {
         String description = String.valueOf(Movie.movie[movieID].getDescription());
         TextView descriptionView = (TextView)findViewById(R.id.description);
         descriptionView.setText("Description: " + description);
+
+        int movieImage = Movie.movie[movieID].getImageId();
+        ImageView imageView = (ImageView) findViewById(R.id.image);
+        imageView.setImageDrawable(ContextCompat.getDrawable(this, movieImage));
+        imageView.setContentDescription(movieName);
 
     }
 
