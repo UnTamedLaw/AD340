@@ -8,12 +8,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
-import java.util.Iterator;
 import android.support.v4.content.Loader;
-import android.support.v4.app.LoaderManager;
 import android.util.Log;
 
 
@@ -88,13 +85,5 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-//    public void parseJSON(){
-//        String cameraName = "camera1";
-//        String imageURL = "California_SW_Hanford_NS.jpg";
-//        String type = "sdot";
-//        cameraArrayList.add(new Camera(cameraName, imageURL, type));
-//        recyclerAdapter = new RecyclerAdapter(MainActivity.this, cameraArrayList);
-//        recyclerView.setAdapter(recyclerAdapter);
-//    }
 
 }

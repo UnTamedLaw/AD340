@@ -1,7 +1,5 @@
 package com.lawk.async;
 
-
-import android.net.Uri;
 import android.util.Log;
 import java.io.BufferedReader;
 import java.io.IOException;
