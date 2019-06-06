@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Testing</string>
+    <string name="question">Select an octane grade</string>
+    <string name="mpgQ">Enter MPG</string>
+    <string name="mpg">25</string>
+    <string name="enterMiles">Enter number of miles</string>
+    <string name="miles">100</string>
+    <string name="send">Calculate cost</string>
+
+
+
+    <string-array name="Gas">
+        <item>"Unleaded</item>
+        <item>"Plus"</item>
+        <item>"Premium"</item>
+    </string-array>
 </resources>
