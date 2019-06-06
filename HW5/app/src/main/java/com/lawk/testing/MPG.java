@@ -14,14 +14,13 @@ public class MPG {
 
 
     public MPG(int miles, int mpg){
-        if (miles <1) {
-            miles = 1;
-        }
+
         if (mpg < 1) {
-            mpg = 1;
+             this.mpg = 1;
+        } else {
+            this.miles = miles;
+            this.mpg = mpg;
         }
-        this.miles = miles;
-        this.mpg = mpg;
     }
     public MPG(Context context) {
         String milesString = context.getString(R.string.miles);
@@ -42,11 +41,11 @@ public class MPG {
         double costs;
 
         if (octane.equals("Unleaded")) {
-            costs = (UNLEADED * miles) / mpg;
+            costs = (UNLEADED * this.miles) / this.mpg;
         } else if (octane.equals("Plus")) {
-            costs = (PLUS * miles) / mpg;
+            costs = (PLUS * this.miles) / this.mpg;
         } else {
-            costs = (PREMIUM * miles) /mpg;
+            costs = (PREMIUM * this.miles) /this.mpg;
         }
 
         DecimalFormat df = new DecimalFormat("0.00");

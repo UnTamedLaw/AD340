@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             output.setText(String.format("$%.02f", costs));
 
         } else {
-            Toast.makeText(this, "Miles Per Gallon and/or miles must be a whole number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Miles Per Gallon or miles must be a number", Toast.LENGTH_SHORT).show();
         }
 
     }
