@@ -8,6 +8,7 @@
     <string name="send">Calculate cost</string>
 
 
+
     <string-array name="Gas">
         <item>"Unleaded</item>
         <item>"Plus"</item>

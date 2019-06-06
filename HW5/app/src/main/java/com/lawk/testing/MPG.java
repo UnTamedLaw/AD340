@@ -14,12 +14,21 @@ public class MPG {
 
 
     public MPG(int miles, int mpg){
+        if (miles <1) {
+            miles = 1;
+        }
+        if (mpg < 1) {
+            mpg = 1;
+        }
         this.miles = miles;
         this.mpg = mpg;
     }
     public MPG(Context context) {
-        this.miles = 100;
-        this.mpg = 25;
+        String milesString = context.getString(R.string.miles);
+        String mpgString = context.getString(R.string.mpg);
+
+        this.miles = Integer.parseInt(milesString);
+        this.mpg = Integer.parseInt(mpgString);
 
     }
     public int getMiles() {

@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         TextView output = (TextView) findViewById(R.id.Calculated);
 
         String milesEnt = milesEntered.getText().toString();
-        String octanedSelected = String.valueOf(listOctane.getSelectedItem());
+        String octaneSelected = String.valueOf(listOctane.getSelectedItem());
         String mpgAns = mpgAnswered.getText().toString();
         if (!mpgAns.isEmpty() && !milesEnt.isEmpty()) {
             int mpg = Integer.parseInt(mpgAns);
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             MPG mpgCalc = new MPG(miles, mpg);
 
 
-            Double costs = mpgCalc.calculateCost(octanedSelected);
+            Double costs = mpgCalc.calculateCost(octaneSelected);
 
             output.setText(String.format("$%.02f", costs));
 
