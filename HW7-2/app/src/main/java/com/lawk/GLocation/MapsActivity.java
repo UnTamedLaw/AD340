@@ -2,6 +2,7 @@ package com.lawk.GLocation;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -32,6 +33,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private FusedLocationProviderClient mapsLocationClient;
     private boolean mapsLocationPermissionGranted = false;
     private GoogleMap gMap;
+    private double x;
+    private double y;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +49,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //We want access to the map thats inside the fragment
         mapFragment.getMapAsync(this);
 
-        int positionID =(Integer)getIntent().getExtras().get(POSITION_ID);
-
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        this.x = bundle.getDouble("X");
+        this.y = bundle.getDouble("Y");
     }
 
     @SuppressLint("MissingPermission")
@@ -72,8 +77,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 currentLocation.getLongitude());
 
                         gMap.addMarker(new MarkerOptions().position(marker).title("Current Location"));
-                        gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 10));
-                        gMap.animateCamera(CameraUpdateFactory.zoomTo(10));
+
+                        LatLng cameraLocation = new LatLng(x,y);
+                        gMap.addMarker(new MarkerOptions().position(cameraLocation)
+                                .title("Marker at Camera Location"));
+                        gMap.moveCamera(CameraUpdateFactory.newLatLng(cameraLocation));
+                        gMap.animateCamera(CameraUpdateFactory.zoomTo(6));
+
 
                     } else {
                         Log.e(TAG, "Location is null...");
@@ -113,10 +123,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         gMap = googleMap;
-
         getLocationPermission();
 
         getLocation();
+
     }
 }
 
