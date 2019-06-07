@@ -1,6 +1,7 @@
 package com.lawk.location;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import android.support.v4.content.Loader;
 import android.util.Log;
 
+
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.FusedLocationProviderClient;
 
@@ -27,14 +29,11 @@ public class MainActivity extends AppCompatActivity
     private ArrayList<Camera> cameraArrayList;
     public static final String TAG = "TAG";
 
-    private FusedLocationProviderClient mLocationClient;
-    private boolean mLocationPermissionGranted = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
@@ -46,17 +45,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    private void getLocationPermission() {
-        if(ContextCompat.checkSelfPermission(this.getApplication(),
-                Manifest.permission.ACCESS_COARSE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            mLocationPermissionGranted = true;
-        } else {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{ Manifest.permission.ACCESS_COARSE_LOCATION},
-                    1);
-        }
-    }
 
     @NonNull
     @Override
@@ -100,6 +88,16 @@ public class MainActivity extends AppCompatActivity
         }
         recyclerAdapter = new RecyclerAdapter(MainActivity.this, cameraArrayList);
         recyclerView.setAdapter(recyclerAdapter);
+
+        final Intent mapIntent = new Intent(this, Maps.class);
+
+        recyclerAdapter.setListener(new RecyclerAdapter.Listener() {
+            @Override
+            public void onClick(int position) {
+               mapIntent.putExtra(position);
+               startActivity(mapIntent);
+            }
+        });
     }
 
     @Override

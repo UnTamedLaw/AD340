@@ -23,19 +23,20 @@ public class NetworkConnection {
         }
         return null;
     }
-    public static String getData(String url, String... uriParams){
-        Uri.Builder builder = Uri.parse(url).buildUpon();
-
-        if ((uriParams.length % 2) != 0) {
-            Log.e(TAG, "Odd number of params");
-            return null;
-        }
-
-        for (int start = 0; start < uriParams.length; start +=2) {
-            builder.appendQueryParameter(uriParams[start], uriParams[start + 1]);
-        }
-        return getData(builder.build().toString());
-    }
+    //Not needed for hw 6/7
+//    public static String getData(String url, String... uriParams){
+//        Uri.Builder builder = Uri.parse(url).buildUpon();
+//
+//        if ((uriParams.length % 2) != 0) {
+//            Log.e(TAG, "Odd number of params");
+//            return null;
+//        }
+//
+//        for (int start = 0; start < uriParams.length; start +=2) {
+//            builder.appendQueryParameter(uriParams[start], uriParams[start + 1]);
+//        }
+//        return getData(builder.build().toString());
+//    }
 
     public static String getData(URL url) {
         HttpURLConnection urlConnection = null;

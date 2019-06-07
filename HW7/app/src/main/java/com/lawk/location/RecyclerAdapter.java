@@ -1,5 +1,6 @@
 package com.lawk.location;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         void onClick(int position);
     }
 
+
     public RecyclerAdapter(Context context, ArrayList<Camera> cameraList) {
         this.context = context;
         this.cameraList = cameraList;
@@ -26,18 +28,23 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.cardview, parent, false);
+        CardView v = (CardView)LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder( ViewHolder viewHolder, final int position) {
+
+        CardView cardView = viewHolder.cardView;
+        ImageView imageView = cardView.findViewById(R.id.image_view);
+        TextView textView = cardView.findViewById(R.id.camera_name);
         Camera currentCamera = cameraList.get(position);
         String imageUrl = currentCamera.getImageURL();
         String cameraName = currentCamera.getCameraName();
         String type = currentCamera.getType();
+        textView.setText(cameraName);
+
         String url;
-        viewHolder.textView.setText(cameraName);
 
         if (type.equals("sdot")) {
             url = "https://www.seattle.gov/trafficcams/images/" + imageUrl;
@@ -46,8 +53,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             url = "https://www.images.wsdot.wa.gov/nw/" + imageUrl;
         }
 
-        Picasso.get().load(url).fit().centerCrop().into(viewHolder.imageView);
-
+        Picasso.get().load(url).fit().centerCrop().into(imageView);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view) {
+                if (listener != null) {
+                    listener.onClick(position);
+                }
+            }
+        });
     }
 
     @Override
@@ -55,17 +69,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         return cameraList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView imageView;
-        public TextView textView;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        private CardView cardView;
 
-        public ViewHolder(View itemView) {
+
+        public ViewHolder(CardView itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.image_view);
-            textView = itemView.findViewById(R.id.camera_name);
+            cardView = itemView;
+
+
         }
     }
+
     public void setListener(Listener listener) {
         this.listener = listener;
     }
 }
+
+
