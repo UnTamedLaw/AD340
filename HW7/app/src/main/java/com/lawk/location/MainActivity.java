@@ -1,13 +1,9 @@
 package com.lawk.location;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.LoaderManager;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,15 +15,15 @@ import android.support.v4.content.Loader;
 import android.util.Log;
 
 
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.FusedLocationProviderClient;
-
 public class MainActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<String>{
     private RecyclerView recyclerView;
     private RecyclerAdapter recyclerAdapter;
     private ArrayList<Camera> cameraArrayList;
+    private ArrayList<CameraCoordinates> coordinatesArrayList;
+
     public static final String TAG = "TAG";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +35,7 @@ public class MainActivity extends AppCompatActivity
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         cameraArrayList = new ArrayList<>();
+        coordinatesArrayList = new ArrayList<>();
 
 
         getSupportLoaderManager().restartLoader(0, null, this);
@@ -71,6 +68,10 @@ public class MainActivity extends AppCompatActivity
                 JSONArray cameras = object.getJSONArray("Cameras");
                 JSONArray coordinates = object.getJSONArray("PointCoordinate");
 
+                    double x =  coordinates.getDouble(0);
+                    double y = coordinates.getDouble( 1);
+                    coordinatesArrayList.add(new CameraCoordinates(x, y));
+
                 for (int start2 = 0; start2 < cameras.length(); start2++) {
                     JSONObject camera = cameras.getJSONObject(start2);
                     String cameraName = camera.getString("Description");
@@ -80,7 +81,6 @@ public class MainActivity extends AppCompatActivity
 
                 }
 
-
             }
 
         } catch (Exception e) {
@@ -89,13 +89,12 @@ public class MainActivity extends AppCompatActivity
         recyclerAdapter = new RecyclerAdapter(MainActivity.this, cameraArrayList);
         recyclerView.setAdapter(recyclerAdapter);
 
-//        final Intent mapIntent = new Intent(this, Maps.class);
-//
+//        final Intent mapsIntent = new Intent(this, MapsActivity.class);
 //        recyclerAdapter.setListener(new RecyclerAdapter.Listener() {
 //            @Override
 //            public void onClick(int position) {
-//               mapIntent.putExtra(position);
-//               startActivity(mapIntent);
+//                mapsIntent.putExtra(MapsActivity.POSITION_ID, position);
+//                startActivity(mapsIntent);
 //            }
 //        });
     }

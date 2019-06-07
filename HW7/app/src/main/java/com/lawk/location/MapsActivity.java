@@ -1,4 +1,5 @@
 package com.lawk.location;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
@@ -13,7 +14,6 @@ import android.util.Log;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -27,8 +27,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private final static String TAG = "GET_LOCATION_ACTIVITY";
-
+    private static final String TAG = "GET_LOCATION_ACTIVITY";
+    public static final String POSITION_ID = "positionID";
     private FusedLocationProviderClient mapsLocationClient;
     private boolean mapsLocationPermissionGranted = false;
     private GoogleMap gMap;
@@ -45,6 +45,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map);
         //We want access to the map thats inside the fragment
         mapFragment.getMapAsync(this);
+
+        //int positionID =(Integer)getIntent().getExtras().get(POSITION_ID);
 
     }
 
