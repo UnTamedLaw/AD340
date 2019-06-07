@@ -59,15 +59,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         this.x = bundle.getDouble("X");
         this.y = bundle.getDouble("Y");
         this.name = bundle.getString("Name");
-        this.type = bundle.getString("Type");
-        this.url = bundle.getString("URL");
-
-        if (type.equals("sdot")) {
-            this.imageURL = "https://www.seattle.gov/trafficcams/images/" + url;
-
-        } else {
-            this.imageURL = "https://www.images.wsdot.wa.gov/nw/" + url;
-        }
 
 
     }

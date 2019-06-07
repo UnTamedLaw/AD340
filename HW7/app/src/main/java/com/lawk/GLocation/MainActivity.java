@@ -106,8 +106,6 @@ public class MainActivity extends AppCompatActivity
                 b.putDouble("X" , x);
                 b.putDouble("Y" , y);
                 b.putString("Name", cameraName);
-                b.putString("Type", type);
-                b.putString("URL", cameraURL);
 
                 mapsIntent.putExtras(b);
                 startActivity(mapsIntent);
