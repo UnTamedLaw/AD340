@@ -13,6 +13,11 @@ import java.util.ArrayList;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
     private Context context;
     private ArrayList<Camera> cameraList;
+    private Listener listener;
+
+    interface Listener {
+        void onClick(int position);
+    }
 
     public RecyclerAdapter(Context context, ArrayList<Camera> cameraList) {
         this.context = context;
@@ -26,14 +31,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder( ViewHolder viewHolder, int position) {
+    public void onBindViewHolder( ViewHolder viewHolder, final int position) {
         Camera currentCamera = cameraList.get(position);
         String imageUrl = currentCamera.getImageURL();
         String cameraName = currentCamera.getCameraName();
         String type = currentCamera.getType();
         String url;
         viewHolder.textView.setText(cameraName);
-
 
         if (type.equals("sdot")) {
             url = "https://www.seattle.gov/trafficcams/images/" + imageUrl;
@@ -60,5 +64,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             imageView = itemView.findViewById(R.id.image_view);
             textView = itemView.findViewById(R.id.camera_name);
         }
+    }
+    public void setListener(Listener listener) {
+        this.listener = listener;
     }
 }

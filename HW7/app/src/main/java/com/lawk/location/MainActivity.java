@@ -1,21 +1,24 @@
 package com.lawk.location;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
-import java.util.Iterator;
 import android.support.v4.content.Loader;
-import android.support.v4.app.LoaderManager;
 import android.util.Log;
 
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.FusedLocationProviderClient;
 
 public class MainActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<String>{
@@ -24,10 +27,14 @@ public class MainActivity extends AppCompatActivity
     private ArrayList<Camera> cameraArrayList;
     public static final String TAG = "TAG";
 
+    private FusedLocationProviderClient mLocationClient;
+    private boolean mLocationPermissionGranted = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
@@ -37,6 +44,18 @@ public class MainActivity extends AppCompatActivity
 
         getSupportLoaderManager().restartLoader(0, null, this);
 
+    }
+
+    private void getLocationPermission() {
+        if(ContextCompat.checkSelfPermission(this.getApplication(),
+                Manifest.permission.ACCESS_COARSE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            mLocationPermissionGranted = true;
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{ Manifest.permission.ACCESS_COARSE_LOCATION},
+                    1);
+        }
     }
 
     @NonNull
@@ -87,14 +106,5 @@ public class MainActivity extends AppCompatActivity
     public void onLoaderReset(@NonNull Loader<String> loader) {
 
     }
-
-//    public void parseJSON(){
-//        String cameraName = "camera1";
-//        String imageURL = "California_SW_Hanford_NS.jpg";
-//        String type = "sdot";
-//        cameraArrayList.add(new Camera(cameraName, imageURL, type));
-//        recyclerAdapter = new RecyclerAdapter(MainActivity.this, cameraArrayList);
-//        recyclerView.setAdapter(recyclerAdapter);
-//    }
 
 }
