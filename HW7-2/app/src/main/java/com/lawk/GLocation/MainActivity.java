@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity
                     cameraArrayList.add(new Camera(cameraName, imageURL, type));
 
                 }
-
             }
 
         } catch (Exception e) {
