@@ -101,9 +101,13 @@ public class MainActivity extends AppCompatActivity
                 double x = coor.getX();
                 double y = coor.getY();
                 String cameraName = name.getCameraName();
+                String cameraURL = name.getImageURL();
+                String type = name.getType();
                 b.putDouble("X" , x);
                 b.putDouble("Y" , y);
                 b.putString("Name", cameraName);
+                b.putString("Type", type);
+                b.putString("URL", cameraURL);
 
                 mapsIntent.putExtras(b);
                 startActivity(mapsIntent);

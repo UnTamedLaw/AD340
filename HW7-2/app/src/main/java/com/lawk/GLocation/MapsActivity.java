@@ -18,6 +18,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -36,6 +37,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private double x;
     private double y;
     private String name;
+    private String url;
+    private String type;
+    private String imageURL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +59,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         this.x = bundle.getDouble("X");
         this.y = bundle.getDouble("Y");
         this.name = bundle.getString("Name");
+        this.type = bundle.getString("Type");
+        this.url = bundle.getString("URL");
+
+        if (type.equals("sdot")) {
+            this.imageURL = "https://www.seattle.gov/trafficcams/images/" + url;
+
+        } else {
+            this.imageURL = "https://www.images.wsdot.wa.gov/nw/" + url;
+        }
+
 
     }
 
@@ -83,7 +97,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         LatLng cameraLocation = new LatLng(x,y);
                         gMap.addMarker(new MarkerOptions().position(cameraLocation)
-                                .title("Camera Location: " + name));
+                                .title("Camera Location: " + name)
+                                .icon(BitmapDescriptorFactory.fromPath(imageURL)));
+
                         gMap.moveCamera(CameraUpdateFactory.newLatLng(cameraLocation));
                         gMap.animateCamera(CameraUpdateFactory.zoomTo(6));
 
@@ -127,7 +143,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         gMap = googleMap;
         getLocationPermission();
-
         getLocation();
 
     }
