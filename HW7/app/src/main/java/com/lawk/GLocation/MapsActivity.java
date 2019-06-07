@@ -97,8 +97,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         LatLng cameraLocation = new LatLng(x,y);
                         gMap.addMarker(new MarkerOptions().position(cameraLocation)
-                                .title("Camera Location: " + name)
-                                .icon(BitmapDescriptorFactory.fromPath(imageURL)));
+                                .title("Camera Location: " + name));
 
                         gMap.moveCamera(CameraUpdateFactory.newLatLng(cameraLocation));
                         gMap.animateCamera(CameraUpdateFactory.zoomTo(6));
