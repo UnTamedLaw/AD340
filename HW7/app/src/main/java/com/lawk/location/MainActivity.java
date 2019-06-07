@@ -89,15 +89,15 @@ public class MainActivity extends AppCompatActivity
         recyclerAdapter = new RecyclerAdapter(MainActivity.this, cameraArrayList);
         recyclerView.setAdapter(recyclerAdapter);
 
-        final Intent mapIntent = new Intent(this, Maps.class);
-
-        recyclerAdapter.setListener(new RecyclerAdapter.Listener() {
-            @Override
-            public void onClick(int position) {
-               mapIntent.putExtra(position);
-               startActivity(mapIntent);
-            }
-        });
+//        final Intent mapIntent = new Intent(this, Maps.class);
+//
+//        recyclerAdapter.setListener(new RecyclerAdapter.Listener() {
+//            @Override
+//            public void onClick(int position) {
+//               mapIntent.putExtra(position);
+//               startActivity(mapIntent);
+//            }
+//        });
     }
 
     @Override
