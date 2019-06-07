@@ -91,11 +91,18 @@ public class MainActivity extends AppCompatActivity
         recyclerAdapter = new RecyclerAdapter(MainActivity.this, cameraArrayList);
         recyclerView.setAdapter(recyclerAdapter);
 
+        final Bundle b = new Bundle();
         final Intent mapsIntent = new Intent(this, MapsActivity.class);
         recyclerAdapter.setListener(new RecyclerAdapter.Listener() {
             @Override
             public void onClick(int position) {
-                mapsIntent.putExtra(MapsActivity.POSITION_ID, position);
+                CameraCoordinates coor = coordinatesArrayList.get(position);
+                double x = coor.getX();
+                double y = coor.getY();
+                b.putDouble("X" , x);
+                b.putDouble("Y" , y);
+
+                mapsIntent.putExtras(b);
                 startActivity(mapsIntent);
             }
         });
