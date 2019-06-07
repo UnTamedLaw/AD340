@@ -35,6 +35,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap gMap;
     private double x;
     private double y;
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Bundle bundle = intent.getExtras();
         this.x = bundle.getDouble("X");
         this.y = bundle.getDouble("Y");
+        this.name = bundle.getString("Name");
+
     }
 
     @SuppressLint("MissingPermission")
@@ -80,7 +83,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         LatLng cameraLocation = new LatLng(x,y);
                         gMap.addMarker(new MarkerOptions().position(cameraLocation)
-                                .title("Marker at Camera Location"));
+                                .title("Camera Location: " + name));
                         gMap.moveCamera(CameraUpdateFactory.newLatLng(cameraLocation));
                         gMap.animateCamera(CameraUpdateFactory.zoomTo(6));
 

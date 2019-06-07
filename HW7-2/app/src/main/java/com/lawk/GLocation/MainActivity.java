@@ -97,10 +97,13 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(int position) {
                 CameraCoordinates coor = coordinatesArrayList.get(position);
+                Camera name = cameraArrayList.get(position);
                 double x = coor.getX();
                 double y = coor.getY();
+                String cameraName = name.getCameraName();
                 b.putDouble("X" , x);
                 b.putDouble("Y" , y);
+                b.putString("Name", cameraName);
 
                 mapsIntent.putExtras(b);
                 startActivity(mapsIntent);
