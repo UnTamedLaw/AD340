@@ -10,3 +10,5 @@ gradle.properties
 /captures
 .externalNativeBuild
 google_maps_api_key.xml
+google_maps_api+key.xml
+
